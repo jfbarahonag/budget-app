@@ -18,6 +18,6 @@ export class HeaderComponent {
     if (isNaN(percentage)) {
       return 0;
     }
-    return percentage;
+    return percentage.toFixed(2);
   }
 }
