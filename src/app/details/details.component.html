@@ -1,25 +1,14 @@
 <div class="contenedor limpiarEstilos">
   <div class="ingreso">
+    <!-- title -->
     <h2 class="ingreso_titulo">Ingresos</h2>
-
-    <div class="elemento limpiarEstilos">
-      <div class="elemento_descripcion">Salario</div>
+    <!-- list -->
+    <div class="elemento limpiarEstilos" *ngFor="let income of getIncomes(); let idx = index">
+      <div class="elemento_descripcion">{{ income.details }}</div>
       <div class="right limpiarEstilos">
-        <div class="elemento_valor">+ 2,100.00</div>
+        <div class="elemento_valor">+ {{ income.value }}</div>
         <div class="elemento_eliminar">
-          <button class="elemento_eliminar--btn">
-            <i class="ion-ios-close-outline"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <div class="elemento limpiarEstilos">
-      <div class="elemento_descripcion">Venta coche</div>
-      <div class="right limpiarEstilos">
-        <div class="elemento_valor">+ 1,500.00</div>
-        <div class="elemento_eliminar">
-          <button class="elemento_eliminar--btn">
+          <button class="elemento_eliminar--btn"(click)="removeIncome(idx)">
             <i class="ion-ios-close-outline"></i>
           </button>
         </div>
@@ -28,28 +17,18 @@
   </div>
 
   <div class="egreso">
+    <!-- title -->
     <h2 class="egreso_titulo">Egresos</h2>
-
-    <div class="elemento limpiarEstilos">
-      <div class="elemento_descripcion">Renta departamento</div>
+    <!-- list -->
+    <div class="elemento limpiarEstilos" *ngFor="let expense of getExpenses(); let idx = index">
+      <div class="elemento_descripcion">{{ expense.details }}</div>
       <div class="right limpiarEstilos">
-        <div class="elemento_valor">- 900.00</div>
-        <div class="elemento_porcentaje">21%</div>
-        <div class="elemento_eliminar">
-          <button class="elemento_eliminar--btn">
-            <i class="ion-ios-close-outline"></i>
-          </button>
+        <div class="elemento_valor">- {{ expense.value }}</div>
+        <div class="elemento_porcentaje">
+          {{ ((expense.value * 100) / totalIncomes).toFixed(1) }}%
         </div>
-      </div>
-    </div>
-
-    <div class="elemento limpiarEstilos">
-      <div class="elemento_descripcion">Ropa</div>
-      <div class="right limpiarEstilos">
-        <div class="elemento_valor">- 435.28</div>
-        <div class="elemento_porcentaje">10%</div>
         <div class="elemento_eliminar">
-          <button class="elemento_eliminar--btn">
+          <button class="elemento_eliminar--btn" (click)="removeExpense(idx)">
             <i class="ion-ios-close-outline"></i>
           </button>
         </div>
