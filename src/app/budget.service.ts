@@ -1,4 +1,4 @@
-interface BudgetItem {
+export interface BudgetItem {
   value: number;
   details: string;
 }
