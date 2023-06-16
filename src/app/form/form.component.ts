@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 export class FormComponent {
   constructor(private budgetService: BudgetService) {}
 
+  isIncome = true;
   selectedValue: 'ing' | 'egr' = 'ing';
   budgetItem: BudgetItem = {
     value: 0,
@@ -26,5 +27,10 @@ export class FormComponent {
     }
     this.budgetItem.details = '';
     this.budgetItem.value = 0;
+  }
+
+  changeType(event: Event) {
+    const valueSelected = (event.target as HTMLSelectElement).value;
+    this.isIncome = valueSelected === 'ing' ? true : false;
   }
 }

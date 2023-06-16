@@ -1,7 +1,16 @@
 <form>
   <div class="agregar">
     <div class="agregar_contenedor">
-      <select class="agregar_tipo" name="add_type" [(ngModel)]="selectedValue">
+      <select
+        (change)="changeType($event)"
+        class="agregar_tipo"
+        name="add_type"
+        [(ngModel)]="selectedValue"
+        [ngClass]="{
+          agregar_ingreso: isIncome,
+          agregar_egreso: !isIncome,
+        }"
+      >
         <option value="ing" selected>+</option>
         <option value="egr">-</option>
       </select>
@@ -11,9 +20,30 @@
         name="add_details"
         placeholder="Agregar Descripción"
         [(ngModel)]="budgetItem.details"
+        [ngClass]="{
+          agregar_ingreso: isIncome,
+          agregar_egreso: !isIncome,
+        }"
       />
-      <input type="number" class="agregar_valor" name="add_value" placeholder="Valor" [(ngModel)]="budgetItem.value" />
-      <button class="agregar_btn" (click)="onAddBudgetItem()">
+      <input
+        type="number"
+        class="agregar_valor"
+        name="add_value"
+        placeholder="Valor"
+        [(ngModel)]="budgetItem.value"
+        [ngClass]="{
+          agregar_ingreso: isIncome,
+          agregar_egreso: !isIncome,
+        }"
+      />
+      <button
+        class="agregar_btn"
+        (click)="onAddBudgetItem()"
+        [ngClass]="{
+          agregar_ingreso_btn: isIncome,
+          agregar_egreso_btn: !isIncome,
+        }"
+      >
         <i class="ion-ios-checkmark-outline"></i>
       </button>
     </div>
