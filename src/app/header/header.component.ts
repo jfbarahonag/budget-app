@@ -9,8 +9,13 @@ export class HeaderComponent {
   @Input() totalIncomes = 0;
   @Input() totalExpenses = 0;
 
-  getTotalBudget() {
-    return this.totalIncomes - this.totalExpenses;
+  getTotalBudget(abs: boolean) {
+    const result = this.totalIncomes - this.totalExpenses;
+    return abs === true ? Math.abs(result) : result;
+  }
+
+  getTotalBudgetSign() {
+    return this.getTotalBudget(false) >= 0 ? '+' : '-';
   }
 
   getExpensesPercentage() {

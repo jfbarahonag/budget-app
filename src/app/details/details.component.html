@@ -6,7 +6,7 @@
     <div class="elemento limpiarEstilos" *ngFor="let income of getIncomes(); let idx = index">
       <div class="elemento_descripcion">{{ income.details }}</div>
       <div class="right limpiarEstilos">
-        <div class="elemento_valor">+ {{ income.value }}</div>
+        <div class="elemento_valor">+ {{ income.value | currency }}</div>
         <div class="elemento_eliminar">
           <button class="elemento_eliminar--btn"(click)="removeIncome(idx)">
             <i class="ion-ios-close-outline"></i>
@@ -23,7 +23,7 @@
     <div class="elemento limpiarEstilos" *ngFor="let expense of getExpenses(); let idx = index">
       <div class="elemento_descripcion">{{ expense.details }}</div>
       <div class="right limpiarEstilos">
-        <div class="elemento_valor">- {{ expense.value }}</div>
+        <div class="elemento_valor">- {{ expense.value | currency }}</div>
         <div class="elemento_porcentaje">
           {{ ((expense.value * 100) / totalIncomes).toFixed(1) }}%
         </div>
