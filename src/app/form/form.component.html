@@ -7,8 +7,8 @@
         name="add_type"
         [(ngModel)]="selectedValue"
         [ngClass]="{
-          agregar_ingreso: isIncome,
-          agregar_egreso: !isIncome,
+          agregar_ingreso: is.income,
+          agregar_egreso: is.expense,
         }"
       >
         <option value="ing" selected>+</option>
@@ -21,8 +21,8 @@
         placeholder="Agregar Descripción"
         [(ngModel)]="budgetItem.details"
         [ngClass]="{
-          agregar_ingreso: isIncome,
-          agregar_egreso: !isIncome,
+          agregar_ingreso: is.income,
+          agregar_egreso: is.expense,
         }"
       />
       <input
@@ -32,16 +32,16 @@
         placeholder="Valor"
         [(ngModel)]="budgetItem.value"
         [ngClass]="{
-          agregar_ingreso: isIncome,
-          agregar_egreso: !isIncome,
+          agregar_ingreso: is.income,
+          agregar_egreso: is.expense
         }"
       />
       <button
         class="agregar_btn"
         (click)="onAddBudgetItem()"
         [ngClass]="{
-          agregar_ingreso_btn: isIncome,
-          agregar_egreso_btn: !isIncome,
+          agregar_ingreso_btn: is.income,
+          agregar_egreso_btn: is.expense,
         }"
       >
         <i class="ion-ios-checkmark-outline"></i>
