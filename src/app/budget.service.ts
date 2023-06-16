@@ -5,8 +5,26 @@ interface BudgetItem {
 
 // TODO: Implement a design pattern
 export class BudgetService {
-  private incomes: BudgetItem[] = [];
-  private expenses: BudgetItem[] = [];
+  private incomes: BudgetItem[] = [
+    {
+      details: 'Salario',
+      value: 4500
+    },
+    {
+      details: 'Retorno de inversion',
+      value: 600
+    },
+  ];
+  private expenses: BudgetItem[] = [
+    {
+      details: 'Arriendo',
+      value: 700
+    },
+    {
+      details: 'Servicios',
+      value: 355
+    },
+  ];
 
   getIncomes() {
     return structuredClone(this.incomes);
