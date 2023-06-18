@@ -1,4 +1,3 @@
-import { BudgetService } from './../budget.service';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -7,24 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./details.component.css'],
 })
 export class DetailsComponent {
-  constructor(private budgetService: BudgetService) {}
+  constructor() {}
 
   @Input() totalIncomes: number = 0;
-
-  getIncomes() {
-    return this.budgetService.getIncomes();
-  }
-
-  getExpenses() {
-    return this.budgetService.getExpenses();
-  }
-
-  removeIncome(idx: number) {
-    this.budgetService.removeIncome(idx);
-  }
-
-  removeExpense(idx: number) {
-    this.budgetService.removeExpense(idx);
-  }
-
 }

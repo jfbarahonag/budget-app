@@ -8,9 +8,11 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() totalIncomes = 0;
   @Input() totalExpenses = 0;
+  @Input() totalPercentage = 0;
+  @Input() totalBudget = 0;
 
   getTotalBudget(abs: boolean) {
-    const result = this.totalIncomes - this.totalExpenses;
+    const result = this.totalBudget;
     return abs === true ? Math.abs(result) : result;
   }
 

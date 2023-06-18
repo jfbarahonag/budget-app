@@ -1,0 +1,24 @@
+<div class="egreso">
+  <!-- title -->
+  <h2 class="egreso_titulo">Egresos</h2>
+  <!-- list -->
+  <div
+    class="elemento limpiarEstilos"
+    *ngFor="let expense of list; let idx = index"
+  >
+    <div class="elemento_descripcion">{{ expense.data.details }}</div>
+    <div class="right limpiarEstilos">
+      <div class="elemento_valor">
+        - {{ expense.data.value | currency : "COP" : "$" : "1.2-2" }}
+      </div>
+      <div class="elemento_porcentaje">
+        {{ getPercentage(expense) | percent }}
+      </div>
+      <div class="elemento_eliminar">
+        <button class="elemento_eliminar--btn" (click)="removeExpense(idx)">
+          <i class="ion-ios-close-outline"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

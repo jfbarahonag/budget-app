@@ -1,38 +1,4 @@
 <div class="contenedor limpiarEstilos">
-  <div class="ingreso">
-    <!-- title -->
-    <h2 class="ingreso_titulo">Ingresos</h2>
-    <!-- list -->
-    <div class="elemento limpiarEstilos" *ngFor="let income of getIncomes(); let idx = index">
-      <div class="elemento_descripcion">{{ income.details }}</div>
-      <div class="right limpiarEstilos">
-        <div class="elemento_valor">+ {{ income.value | currency }}</div>
-        <div class="elemento_eliminar">
-          <button class="elemento_eliminar--btn"(click)="removeIncome(idx)">
-            <i class="ion-ios-close-outline"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="egreso">
-    <!-- title -->
-    <h2 class="egreso_titulo">Egresos</h2>
-    <!-- list -->
-    <div class="elemento limpiarEstilos" *ngFor="let expense of getExpenses(); let idx = index">
-      <div class="elemento_descripcion">{{ expense.details }}</div>
-      <div class="right limpiarEstilos">
-        <div class="elemento_valor">- {{ expense.value | currency }}</div>
-        <div class="elemento_porcentaje">
-          {{ ((expense.value * 100) / totalIncomes).toFixed(1) }}%
-        </div>
-        <div class="elemento_eliminar">
-          <button class="elemento_eliminar--btn" (click)="removeExpense(idx)">
-            <i class="ion-ios-close-outline"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+  <app-income />
+  <app-expense [totalIncomes]="totalIncomes" />
 </div>
