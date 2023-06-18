@@ -155,22 +155,6 @@ body {
   transition: border 0.3s;
 }
 
-.agregar_ingreso {
-  border: 1px solid var(--color-ingreso);
-}
-
-.agregar_egreso {
-  border: 1px solid var(--color-egreso);
-}
-
-.agregar_ingreso_btn {
-  color: var(--color-ingreso);
-}
-
-.agregar_egreso_btn {
-  color: var(--color-egreso);
-}
-
 .agregar_descripcion {
   width: 400px;
 }
@@ -183,7 +167,7 @@ body {
   font-size: 35px;
   background: none;
   border: none;
-  /* color: var(--color-ingreso); */
+  color: var(--color-ingreso);
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
@@ -199,7 +183,7 @@ body {
 .agregar_descripcion:focus,
 .agregar_valor:focus {
   outline: none;
-  /* border: 1px solid var(--color-ingreso); */
+  border: 1px solid var(--color-ingreso);
 }
 
 .agregar_btn:focus {
