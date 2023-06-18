@@ -19,11 +19,11 @@ export class FormComponent {
   is = {
     income: true,
     expense: false,
-  }
+  };
   selectedValue: 'ing' | 'egr' = 'ing';
   budgetItem: BudgetItem = {
     value: 0,
-    details: ''
+    details: '',
   };
 
   changeType(event: Event) {
@@ -33,8 +33,7 @@ export class FormComponent {
   }
 
   onAddBudgetItem() {
-    if (this.budgetItem.value === 0 || this.budgetItem.details === '')
-      return;
+    if (this.budgetItem.value === 0) return;
     const budgetItem = structuredClone(this.budgetItem);
     if (this.is.income) {
       this.incomeService.add(new Income(budgetItem));
